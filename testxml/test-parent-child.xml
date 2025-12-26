@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <groupId>com.company</groupId>
+        <artifactId>parent-project</artifactId>
+        <version>2.0.0</version>
+    </parent>
+    
+    <artifactId>child-module</artifactId>
+    <packaging>jar</packaging>
+    
+    <name>Child Module</name>
+    <description>子模块项目 - 测试父子依赖继承</description>
+    
+    <properties>
+        <struts.version>2.5.20</struts.version>
+        <commons-collections.version>3.2.1</commons-collections.version>
+    </properties>
+    
+    <dependencies>
+        <!-- Struts2 - 严重漏洞 -->
+        <dependency>
+            <groupId>org.apache.struts</groupId>
+            <artifactId>struts2-core</artifactId>
+            <version>${struts.version}</version>
+        </dependency>
+        
+        <!-- Commons Collections - 已知反序列化漏洞 -->
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>${commons-collections.version}</version>
+        </dependency>
+        
+        <!-- 没有版本号的依赖 - 将从父项目继承 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        
+        <!-- Apache POI -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+        
+        <!-- OkHttp -->
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>3.14.2</version>
+        </dependency>
+    </dependencies>
+</project>
